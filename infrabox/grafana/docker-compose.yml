@@ -1,0 +1,18 @@
+version: '3'
+
+
+services:
+  grafana:
+    image: grafana/grafana-oss:9.5.6
+    container_name: grafana01
+    restart: always
+    ports: 
+      - "3100:3000"
+    volumes:
+      - ./grafana-storage:/var/lib/grafana
+    networks: 
+      - prometheus_prom_net
+volumes:
+  grafana-storage: {}
+networks:
+  prometheus_prom_net:
